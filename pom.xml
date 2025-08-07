@@ -17,29 +17,42 @@
 		<java.version>17</java.version>
 	</properties>
     <dependencies>
-        <!-- Required pinned dependencies -->
+        <!-- 1. Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>3.2.5</version>
         </dependency>
+
+        <!-- 2. Spring Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>3.2.5</version>
         </dependency>
+
+        <!-- 3. Spring for Kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
             <version>3.1.4</version>
         </dependency>
+
+        <!-- 4. H2 in-memory database -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>2.2.224</version>
         </dependency>
 
-        <!-- Test dependencies -->
+        <!-- (Optional but recommended) Jakarta Persistence API so @Entity, @Id, etc. resolve -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- 5. Spring Boot test starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -52,12 +65,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- 6. Spring Kafka test utilities -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
             <version>3.1.4</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- 7. Testcontainers Kafka module -->
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>kafka</artifactId>
@@ -65,8 +82,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.11</version>
+        </dependency>
+        <!-- Align Scala module with Spring Boot's Jackson (2.15.4) -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-scala_2.13</artifactId>
+            <version>2.15.4</version>
         </dependency>
     </dependencies>
 
